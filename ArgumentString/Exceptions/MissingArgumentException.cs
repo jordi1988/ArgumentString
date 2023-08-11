@@ -4,9 +4,9 @@ using ArgumentStringNS;
 
 namespace ArgumentStringNS.Exceptions
 {
-    public class MissingArgumentsParseException : ParseException
+    public class MissingArgumentException : ParseException
     {
-        public MissingArgumentsParseException(IEnumerable<string> missingArguments, ParseOptions options) :
+        public MissingArgumentException(IEnumerable<string> missingArguments, ParseOptions options) :
             base(GenerateErrorText(missingArguments, options))
         {
         }
