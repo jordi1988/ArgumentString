@@ -4,6 +4,10 @@ So an argument string literal looks like this: `"foo=bar;version=1"`.
 
 You have some options, e. g. setting mandatory fields that are checked on object instantiation and an easy way to access the arguments by method or by index.
 
+## Installation
+- Install via [NuGet](https://www.nuget.org/packages/ArgumentString): `PM> Install-Package ArgumentString`
+- Build from your own
+
 ## Instantiation
 Simplest examples:
 ``` csharp
