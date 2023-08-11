@@ -30,20 +30,6 @@ namespace ArgumentStringNS.Tests
                 });
             });
             
-            
-            var argumentsExample1 = new ArgumentString("foo=bar;version=1", new ParseOptions("foo") { /* ... */ });
-
-            var argumentsExample2 = new ArgumentString("foo=bar;version=1", options => { 
-                options.MandatoryKeys = new List<string> { "foo" };
-            });
-
-            var argumentsExample3 = new ArgumentString("foo->bar|version->1", options => { 
-                options.ArgumentSeparator = "|";
-                options.KeyValueSeparator = "->";
-                options.ThrowOnAccessIfKeyNotFound = true;
-            });
-            var test = argumentsExample3.Get<float>("version");
-
             // Assert
             Assert.Null(exception);
         }
