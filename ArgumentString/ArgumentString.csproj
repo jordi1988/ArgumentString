@@ -3,6 +3,25 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
 	<Nullable>enable</Nullable>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Title>ArgumentString</Title>
+	<Authors>Sascha Jordan</Authors>
+	<Description>What is an argument string, you might ask? The idea is borrowed from command line arguments and connection strings.
+So an argument string literal looks like this: "foo=bar;version=1". 
+You have some options, e. g. setting mandatory fields that are checked on object instantiation and an easy way to access the arguments by method or by index.</Description>
+	<PackageProjectUrl>https://github.com/jordi1988/ArgumentString</PackageProjectUrl>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<RepositoryUrl>https://github.com/jordi1988/ArgumentString</RepositoryUrl>
+	<PackageTags>argument string;string parser;parse;argument reader;command line;options;option parser;command line parser;appi;</PackageTags>
+	<PackageReleaseNotes>initial release</PackageReleaseNotes>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

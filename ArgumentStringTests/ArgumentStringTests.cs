@@ -51,7 +51,8 @@ namespace ArgumentStringNS.Tests
         public void IndexByInteger_ValidIndex_ReturnsCorrectResult()
         {
             // Arrange & Act
-            var sut = new ArgumentString(@"foo=bar");
+            var sut = new ArgumentString(@"foo=bar",
+                options => options.ThrowOnAccessIfKeyNotFound = true);
 
             var result = sut[0];
 
@@ -63,7 +64,8 @@ namespace ArgumentStringNS.Tests
         public void IndexByInteger_InvalidIndex_ThrowsException()
         {
             // Arrange
-            var sut = new ArgumentString(@"foo=bar");
+            var sut = new ArgumentString(@"foo=bar", 
+                options => options.ThrowOnAccessIfKeyNotFound = true);
 
             // Act & Assert
             var exception = Assert.Throws<MissingArgumentException>(() =>
