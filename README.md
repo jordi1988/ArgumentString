@@ -56,6 +56,6 @@ string foo = argumentsExample[2]; // -> same as above
 Need to work with a specific format?  
 *You should pay attention to pass correct values for the conversion to work. For that reason there are some more exceptions that will be thrown.*
 ``` csharp
-string version = argumentsExample.Get<float>("version"); // -> (float)1 
-string version = argumentsExample.Get<float>(1); // -> (float)1 
+float version = argumentsExample.Get<float>("version"); // -> (float)1 
+float version = argumentsExample.Get<float>(1); // -> (float)1 
 ```
