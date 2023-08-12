@@ -6,15 +6,15 @@
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<Title>ArgumentString</Title>
 	<Authors>Sascha Jordan</Authors>
-	<Description>What is an argument string, you might ask? The idea is borrowed from command line arguments and connection strings.
-So an argument string literal looks like this: "foo=bar;version=1". 
-You have some options, e. g. setting mandatory fields that are checked on object instantiation and an easy way to access the arguments by method or by index.</Description>
+	<Description>What is an argument string, you might ask? The idea is borrowed from connection strings.  
+So an argument string literal looks like this: `"foo=bar;version=1"`. The library allows you to access these arguments easily by key or by index.</Description>
 	<PackageProjectUrl>https://github.com/jordi1988/ArgumentString</PackageProjectUrl>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<RepositoryUrl>https://github.com/jordi1988/ArgumentString</RepositoryUrl>
 	<PackageTags>argument string;string parser;parse;argument reader;command line;options;option parser;command line parser;appi;</PackageTags>
-	<PackageReleaseNotes>initial release</PackageReleaseNotes>
+	<PackageReleaseNotes>documented public members, added option ReturnEmptyStringInsteadOfNull, finished test cases</PackageReleaseNotes>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
