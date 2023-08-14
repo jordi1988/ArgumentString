@@ -12,9 +12,9 @@ So an argument string literal looks like this: `"foo=bar;version=1"`. The librar
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<RepositoryUrl>https://github.com/jordi1988/ArgumentString</RepositoryUrl>
 	<PackageTags>argument string;string parser;parse;argument reader;command line;options;option parser;command line parser;appi;</PackageTags>
-	<PackageReleaseNotes>documented public members, added option ReturnEmptyStringInsteadOfNull, finished test cases</PackageReleaseNotes>
+	<PackageReleaseNotes>unified namespace</PackageReleaseNotes>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<Version>1.0.1</Version>
+	<Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

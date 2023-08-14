@@ -1,5 +1,4 @@
-﻿using ArgumentString.Exceptions;
-using ArgumentStringNS.Exceptions;
+﻿using ArgumentStringNS.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

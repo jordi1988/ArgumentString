@@ -6,7 +6,7 @@ namespace ArgumentStringNS.Exceptions
     /// <summary>
     /// Exception that is used if a segment cannot be read because no assignment was found.
     /// </summary>
-    /// <seealso cref="ArgumentStringNS.Exceptions.ParseException" />
+    /// <seealso cref="ParseException" />
     [Serializable]
     public class MalformedArgumentException : ParseException
     {

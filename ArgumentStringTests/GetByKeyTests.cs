@@ -1,5 +1,4 @@
-﻿using ArgumentString.Exceptions;
-using ArgumentStringNS.Exceptions;
+﻿using ArgumentStringNS.Exceptions;
 using Xunit;
 
 namespace ArgumentStringNS.Tests
