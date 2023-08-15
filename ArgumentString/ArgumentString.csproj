@@ -7,14 +7,14 @@
 	<Title>ArgumentString</Title>
 	<Authors>Sascha Jordan</Authors>
 	<Description>What is an argument string, you might ask? The idea is borrowed from connection strings.  
-So an argument string literal looks like this: `"foo=bar;version=1"`. The library allows you to access these arguments easily by key or by index.</Description>
+So an argument string literal looks like this: `"foo=bar;version=1"`. The library allows you to access these arguments easily by key or by index. You can customize the library's behavior and easily deal with faulty and default values in case the key was not found.</Description>
 	<PackageProjectUrl>https://github.com/jordi1988/ArgumentString</PackageProjectUrl>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<RepositoryUrl>https://github.com/jordi1988/ArgumentString</RepositoryUrl>
 	<PackageTags>argument string;string parser;parse;argument reader;command line;options;option parser;command line parser;appi;</PackageTags>
-	<PackageReleaseNotes>unified namespace</PackageReleaseNotes>
+	<PackageReleaseNotes>New version with default values.</PackageReleaseNotes>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<Version>1.0.2</Version>
+	<Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 
 namespace ArgumentStringNS
 {
@@ -45,10 +46,11 @@ namespace ArgumentStringNS
         /// Gets the value for the given key.
         /// </summary>
         /// <param name="key">The key.</param>
+        /// <param name="defaultValue">The returned value if key is not found.</param>
         /// <returns>Empty string if not found and <see cref="ParseOptions.ThrowOnAccessIfKeyNotFound"/> equals to false.</returns>
         /// <exception cref="MissingArgumentException">Thrown if key is not found and <see cref="ParseOptions.ThrowOnAccessIfKeyNotFound"/> equals to true.</exception>
         /// <remarks>Complexity of this method is <c>O(1)</c> (constant).</remarks>
-        public string? Get(string key)
+        public string? Get(string key, string? defaultValue = null)
         {
             bool shouldThrowIfKeyMissing = _options.ThrowOnAccessIfKeyNotFound && !_arguments.ContainsKey(key);
             if (shouldThrowIfKeyMissing)
@@ -56,9 +58,9 @@ namespace ArgumentStringNS
                 throw new MissingArgumentException(new string[] { key }, _options);
             }
             
-            var value = _arguments.GetValueOrDefault(key);
+            var value = _arguments.GetValueOrDefault(key, defaultValue!);
 
-            bool shouldReturnEmptyString = _options.ReturnEmptyStringInsteadOfNull && value is null;
+            bool shouldReturnEmptyString = value is null && _options.ReturnEmptyStringInsteadOfNull;
             if (shouldReturnEmptyString)
             {
                 return string.Empty;
@@ -73,13 +75,19 @@ namespace ArgumentStringNS
         /// <param name="index">The index.</param>
         /// <exception cref="MissingArgumentException">Thrown if index is out of range.</exception>
         /// <remarks>Complexity of this method is <c>O(n)</c> (linear), if <typeparamref name="T"/> is a primitve type.</remarks>
-        public string? Get(int index)
+        public string? Get(int index, string? defaultValue = null)
         {
             if (index >= _arguments.Count)
             {
                 if (_options.ThrowOnAccessIfKeyNotFound)
                 {
-                    throw new MissingArgumentException(new string[] { $"Index {index}" }, _options);
+                    var key = $"Index {index}";
+                    throw new MissingArgumentException(new string[] { key }, _options);
+                }
+
+                if (!(defaultValue is null))
+                {
+                    return defaultValue;
                 }
 
                 if (_options.ReturnEmptyStringInsteadOfNull)
@@ -101,15 +109,18 @@ namespace ArgumentStringNS
         /// <returns>Empty string if not found and <see cref="ParseOptions.ThrowOnAccessIfKeyNotFound"/> equals to false.</returns>
         /// <typeparam name="T">The return type.</typeparam>
         /// <remarks>Complexity of this method is <c>O(1)</c> (constant), if <typeparamref name="T"/> is a primitve type.</remarks>
+        /// <param name="defaultValue">The returned value if key is not found. Will be converted to <c>string</c> using the <c>ToString()</c> method.</param>
         /// <inheritdoc cref="ConvertValue{T}(string, string)"/>
         /// <inheritdoc cref="Get(string)"/>
-        public T Get<T>(string key)
+        public T Get<T>(string key, T? defaultValue = default)
+            where T : struct 
         {
-            var value = Get(key);
+            var value = Get(key, defaultValue?.ToString());
             var convertedValue = ConvertValue<T>(key, value);
 
             return convertedValue;
         }
+
         /// <summary>
         /// Gets the converted value for the given key.
         /// </summary>
@@ -118,19 +129,21 @@ namespace ArgumentStringNS
         /// <remarks>Complexity of this method is <c>O(n)</c> (linear), if <typeparamref name="T"/> is a primitve type.</remarks>
         /// <inheritdoc cref="Get(int)"/>
         /// <inheritdoc cref="ConvertValue{T}(string, string)"/>
-        public T Get<T>(int index)
+        public T Get<T>(int index, T? defaultValue = default)
+            where T : struct
         {
-            var value = Get(index);
-            var convertedValue = ConvertValue<T>($"Index {index}", value);
+            var value = Get(index, defaultValue?.ToString());
+            var key = $"Index {index}";
+            var convertedValue = ConvertValue<T>(key, value);
 
             return convertedValue;
         }
 
         /// <inheritdoc cref="Get(string)"/>
-        public string? this[string key] => Get(key);
+        public string? this[string key, string? defaultValue = null] => Get(key, defaultValue);
 
         /// <inheritdoc cref="Get(int)"/>
-        public string? this[int index] => Get(index);
+        public string? this[int index, string? defaultValue = null] => Get(index, defaultValue);
 
         /// <summary>
         /// Validates the input.

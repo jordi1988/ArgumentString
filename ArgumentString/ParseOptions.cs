@@ -31,7 +31,7 @@ namespace ArgumentStringNS
         public bool ThrowOnAccessIfKeyNotFound { get; set; }
 
         /// <summary>
-        /// Returns <c>string.Empty</c> instead of <c>null</c> on strings or <c>0</c> on integers if key or index is nonexistent.
+        /// Returns <c>string.Empty</c> instead of <c>null</c> on strings if key or index is nonexistent.
         /// </summary>
         /// <remarks>Defaults to <c>true</c>, so you must not deal with <c>null</c> values.</remarks>
         public bool ReturnEmptyStringInsteadOfNull { get; set; } = true;
