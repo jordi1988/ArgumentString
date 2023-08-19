@@ -52,6 +52,8 @@ var arguments = new ArgumentString("foo->bar|version->1", options => {
 
 **Accessing values** is the most fun part:
 ``` csharp
+var arguments = new ArgumentString("foo=bar;version=1");
+
 string foo = arguments.Get("foo"); // -> bar
 string foo = arguments["foo"]; // -> bar
 
