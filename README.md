@@ -61,6 +61,8 @@ string foo = arguments[0]; // -> bar
 
 Dealing with **faulty values**:
 ``` csharp
+var arguments = new ArgumentString("foo=bar;version=1");
+
 string foo = arguments.Get("missing"); // -> `string.Empty` if `ThrowOnAccessIfKeyNotFound` is false (default)
 string foo = arguments.Get("missing"); // -> `MissingArgumentException` if `ThrowOnAccessIfKeyNotFound` is true
 string foo = arguments["missing"]; // -> same as above
@@ -72,6 +74,8 @@ string foo = arguments[2]; // -> same as above
 
 Dealing with **default values** (second parameter `defaultValue` on `Get()` method):
 ``` csharp
+var arguments = new ArgumentString("foo=bar;version=1");
+
 string foo = arguments.Get("missing", "bar"); // -> `bar` if `ThrowOnAccessIfKeyNotFound` is false (default)
 string foo = arguments.Get("missing", "bar"); // -> `MissingArgumentException` if `ThrowOnAccessIfKeyNotFound` is true
 string foo = arguments["missing", "bar"]; // -> same as above
@@ -84,9 +88,11 @@ string foo = arguments[2, "bar"]; // -> same as above
 Need to work with a **specific format (type conversion)**?  
 *You should pay attention to pass correct values for the conversion to work. For that reason there are some more exceptions that will be thrown.*
 ``` csharp
+var arguments = new ArgumentString("foo=bar;version=1");
+
 float version = arguments.Get<float>("version"); // -> (float)1 
 float version = arguments.Get<float>("missing", 99); // -> (float)99 
 
 float version = arguments.Get<float>(1); // -> (float)1 
-float version = arguments.Get<float>(1, 99); // -> (float)99 
+float version = arguments.Get<float>(2, 99); // -> (float)99 
 ```
