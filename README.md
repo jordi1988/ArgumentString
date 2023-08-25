@@ -1,5 +1,6 @@
 # ArgumentString
-[![.NET 6 Build and Test](https://github.com/jordi1988/ArgumentString/actions/workflows/dotnet6-build-and-test.yml/badge.svg)](https://github.com/jordi1988/ArgumentString/actions/workflows/dotnet6-build-and-test.yml)
+![Logo](logo.png)  
+[![.NET 6 Build and Test](https://github.com/jordi1988/ArgumentString/actions/workflows/dotnet6-build-and-test.yml/badge.svg)](https://github.com/jordi1988/ArgumentString/actions/workflows/dotnet6-build-and-test.yml)  
 
 **What is an argument string, you might ask? The idea is borrowed from connection strings.  
 So an argument string literal looks like this: `"foo=bar;version=1"`. The library allows you to access these arguments easily by key or by index. You can customize the library's behavior and easily deal with faulty and default values in case the key was not found.**  

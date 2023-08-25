@@ -14,10 +14,15 @@ So an argument string literal looks like this: `"foo=bar;version=1"`. The librar
 	<PackageTags>argument string;string parser;parse;argument reader;command line;options;option parser;command line parser;appi;</PackageTags>
 	<PackageReleaseNotes>New version with default values.</PackageReleaseNotes>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<Version>1.0.3</Version>
+	<Version>1.0.4</Version>
+	<PackageIcon>logo-small.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\logo-small.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
